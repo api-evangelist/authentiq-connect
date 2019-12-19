@@ -1,0 +1,341 @@
+{
+    "id": "6f93937ab257535235c2f0871b7578d7",
+    "name": "Authentiq Connect",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "9dda7e1764b566f83b09410c9e3571ea",
+            "name": "Authenticate a user",
+            "url": "httpsconnect.authentiq.io\/\/authorize",
+            "description": "Start a session with Authentiq Connect and authenticate a user.\n\nExample:\n\n```\nGET https:\/\/connect.authentiq.io\/authorize?client_id=<your-client-id>&response_type=code+id_token&scope=openid+email&redirect_uri=<your-redirect-uri>&state=0123456789\n```\n\nThis endpoint is compatible with OpenID Connect and also supports the POST method, in which case the parameters are passed as a form post.\n\nSee also:\n  - [OAuth 2.0 Authorization Endpoint](http:\/\/tools.ietf.org\/html\/rfc6749#section-3.1)\n  - [OIDC Au",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "client_id",
+                    "description": "A client ID obtained from the [Dashboard](https:\/\/dashboard.authentiq.com\/).\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "response_type",
+                    "description": "The OIDC response type to use for this authentication flow. Valid choices are `code`, `id_token`, `token`, `token id_token`, `code id_token` `code token` and `code token id_token`, but a client can be configured with a more restricted set.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "scope",
+                    "description": "The space-separated identity claims to request from the end-user. Always include `openid` as a scope for compatibility with OIDC.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "redirect_uri",
+                    "description": "The location to redirect to after (un)successful authentication. See OIDC for the parameters passed in the query string (`response_mode=query`) or as fragments (`response_mode=fragment`). Unless the client is in test-mode this must be one of the registered redirect URLs.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "An opaque string that will be passed back to the redirect URL and therefore can be used to communicate client side state and prevent CSRF attacks.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "response_mode",
+                    "description": "Whether to append parameters to the redirect URL in the query string (`query`) or as fragments (`fragment`). This option usually has a sensible default for each of the response types.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "nonce",
+                    "description": "An nonce provided by the client (and opaque to Authentiq Connect) that will be included in any ID Token generated for this session. Clients should use the nonce to mitigate replay attacks.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "display",
+                    "description": "The authentication display mode, which can be one of `page`, `popup` or `modal`. Defaults to `page`.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "prompt",
+                    "description": "Space-delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the End-User for reauthentication and consent. The supported values are: `none`, `login`, `consent`. If `consent` the end-user is asked to (re)confirm what claims they share. Use `none` to check for an active session.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "max_age",
+                    "description": "Specifies the allowable elapsed time in seconds since the last time the end-user was actively authenticated.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "ui_locales",
+                    "description": "Specifies the preferred language to use on the authorization page, as a space-separated list of BCP47 language tags. Ignored at the moment.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "6f93937ab257535235c2f0871b7578d7",
+            "rawModeData": ""
+        },
+        {
+            "id": "726bb3086f5534e553c3d15b8037c9ab",
+            "name": "List clients",
+            "url": "httpsconnect.authentiq.io\/\/client",
+            "description": "Retrieve a list of clients.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "6f93937ab257535235c2f0871b7578d7",
+            "rawModeData": ""
+        },
+        {
+            "id": "716b8fd3e18ac42b327bcc358b83f652",
+            "name": "Register a client",
+            "url": "httpsconnect.authentiq.io\/\/client",
+            "description": "Register a new client with this Authentiq Connect provider.\n\nThis endpoint is compatible with [OIDC's Client Registration](http:\/\/openid.net\/specs\/openid-connect-registration-1_0.html) extension.\n\nSee also:\n- [OIDC Client Registration Endpoint](http:\/\/openid.net\/specs\/openid-connect-registration-1_0.html#ClientRegistration)\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "6f93937ab257535235c2f0871b7578d7",
+            "rawModeData": ""
+        },
+        {
+            "id": "1f4b7b10fb6ec7889350ea8d393a6aab",
+            "name": "Delete a client",
+            "url": "httpsconnect.authentiq.io\/\/client\/{client_id}",
+            "description": "Delete a previously registered client.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "6f93937ab257535235c2f0871b7578d7",
+            "rawModeData": ""
+        },
+        {
+            "id": "acf46b85b8fed35e1e054b5a0ee7a4e2",
+            "name": "View a client",
+            "url": "httpsconnect.authentiq.io\/\/client\/{client_id}",
+            "description": "Retrieve the configuration of a previously registered client.\n\nSee also:\n- [OIDC Client Configuration Endpoint](http:\/\/openid.net\/specs\/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "6f93937ab257535235c2f0871b7578d7",
+            "rawModeData": ""
+        },
+        {
+            "id": "5e93b58ce45cfc3fc1313b67713e2015",
+            "name": "Update a client",
+            "url": "httpsconnect.authentiq.io\/\/client\/{client_id}",
+            "description": "Update the configuration of a previously registered client.\n\nSee also:\n- [OIDC Client Configuration Endpoint](http:\/\/openid.net\/specs\/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "6f93937ab257535235c2f0871b7578d7",
+            "rawModeData": ""
+        },
+        {
+            "id": "db643e4c3e54651e1858a24d705911d7",
+            "name": "Obtain an ID Token",
+            "url": "httpsconnect.authentiq.io\/\/token",
+            "description": "Exchange en authorization code for an ID Token or Access Token.\n\nThis endpoint supports both `client_secret_post` and `client_secret_basic` authenticatino methods, as specified by the client's `token_endpoint_auth_method`.\n\nSee also:\n  - [OIDC Token Endpoint](http:\/\/openid.net\/specs\/openid-connect-core-1_0.html#TokenRequest)\n  - [OIDC Successful Token response](http:\/\/openid.net\/specs\/openid-connect-core-1_0.html#TokenResponse)\n  - [OIDC Token Error response](http:\/\/openid.net\/specs\/openid-conne",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Authorization",
+                    "description": "HTTP Basic authorization header.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "client_id",
+                    "description": "The registered client ID.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "client_secret",
+                    "description": "The registered client ID secret.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "grant_type",
+                    "description": "The authorization grant type, must be `authorization_code`.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "code",
+                    "description": "The authorization code previously obtained from the Authentication endpoint.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "redirect_uri",
+                    "description": "The redirect URL that was used previously with the Authentication endpoint.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "6f93937ab257535235c2f0871b7578d7",
+            "rawModeData": ""
+        },
+        {
+            "id": "897ca56cd02235c4522370b920facc76",
+            "name": "Retrieve their user profile",
+            "url": "httpsconnect.authentiq.io\/\/userinfo",
+            "description": "Use this endpoint to retrieve a user's profile in case you've not already obtained enough details from the ID Token via the Token Endpoint.\n See also:\n - [OIDC UserInfo endpoint](http:\/\/openid.net\/specs\/openid-connect-core-1_0.html#UserInfo)\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "6f93937ab257535235c2f0871b7578d7",
+            "rawModeData": ""
+        },
+        {
+            "id": "2a9d5da9eb2fd7d8526d81deae3e5747",
+            "name": "Include a session iframe",
+            "url": "httpsconnect.authentiq.io\/\/{client_id}\/iframe",
+            "description": "An OpenID Connect Session Management iframe to facilitate e.g. single sign-on or remote logouts.\n\nThe iframe implements the OIDC postMessage-based [change notification protocol](http:\/\/openid.net\/specs\/openid-connect-session-1_0.html#ChangeNotification) via which a client can receive notifications about session state changes.\n\nSee also:\n- [OIDC OP iframe](http:\/\/openid.net\/specs\/openid-connect-session-1_0.html#OPiframe)\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "6f93937ab257535235c2f0871b7578d7",
+            "rawModeData": ""
+        }
+    ]
+}
