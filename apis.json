@@ -1,0 +1,73 @@
+{
+    "name": "Authentiq Connect",
+    "description": "<p>Authentiq offers the convenience of passwordless authentication with the safety of two step verification. Sign up for Authentiq today, and never think about authentication again.<\/p>",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/authentiq-logo.png",
+    "tags": [
+        "api provider",
+        "api service provider",
+        "authentication",
+        "have api",
+        "passwords",
+        "relative data",
+        "service api"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/authentiq-connect\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Authentiq Connect",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/authentiq-logo.png",
+            "humanURL": "http:\/\/authentiq.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/authentiq-connect-openapi.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/authentiq-connect.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/authentiq-connect-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Website",
+            "url": "http:\/\/authentiq.com"
+        },
+        {
+            "type": "Blog",
+            "url": "https:\/\/www.authentiq.com\/blog\/"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/www.authentiq.com\/developers\/"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/AuthentiqID"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/www.authentiq.com\/pricing\/"
+        },
+        {
+            "type": "Twitter",
+            "url": "AuthentiqID"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/authentiq.io"
+        }
+    ]
+}
