@@ -1,0 +1,479 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0",
+        "title": "Authentiq Connect",
+        "description": "Authentiq Connect OAuth 2.0 and OpenID Connect API reference.\nLearn about [Authentiq ID](https:\/\/www.authentiq.com\/) or check out the [Authentiq Connect](https:\/\/developers.authentiq.com) developer documentation.\n",
+        "termsOfService": "https:\/\/www.authentiq.com\/tos\/"
+    },
+    "servers": [
+        "httpsconnect.authentiq.io\/"
+    ],
+    "paths": {
+        "\/authorize": {
+            "get": {
+                "summary": "Authenticate a user",
+                "description": "Start a session with Authentiq Connect and authenticate a user.\n\nExample:\n\n```\nGET https:\/\/connect.authentiq.io\/authorize?client_id=<your-client-id>&response_type=code+id_token&scope=openid+email&redirect_uri=<your-redirect-uri>&state=0123456789\n```\n\nThis endpoint is compatible with OpenID Connect and also supports the POST method, in which case the parameters are passed as a form post.\n\nSee also:\n  - [OAuth 2.0 Authorization Endpoint](http:\/\/tools.ietf.org\/html\/rfc6749#section-3.1)\n  - [OIDC Au",
+                "operationId": "Authorize",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "client_id",
+                        "in": "query",
+                        "description": "A client ID obtained from the [Dashboard](https:\/\/dashboard.authentiq.com\/).\n"
+                    },
+                    {
+                        "name": "response_type",
+                        "in": "query",
+                        "description": "The OIDC response type to use for this authentication flow. Valid choices are `code`, `id_token`, `token`, `token id_token`, `code id_token` `code token` and `code token id_token`, but a client can be configured with a more restricted set.\n"
+                    },
+                    {
+                        "name": "scope",
+                        "in": "query",
+                        "description": "The space-separated identity claims to request from the end-user. Always include `openid` as a scope for compatibility with OIDC.\n"
+                    },
+                    {
+                        "name": "redirect_uri",
+                        "in": "query",
+                        "description": "The location to redirect to after (un)successful authentication. See OIDC for the parameters passed in the query string (`response_mode=query`) or as fragments (`response_mode=fragment`). Unless the client is in test-mode this must be one of the registered redirect URLs.\n"
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "description": "An opaque string that will be passed back to the redirect URL and therefore can be used to communicate client side state and prevent CSRF attacks.\n"
+                    },
+                    {
+                        "name": "response_mode",
+                        "in": "query",
+                        "description": "Whether to append parameters to the redirect URL in the query string (`query`) or as fragments (`fragment`). This option usually has a sensible default for each of the response types.\n"
+                    },
+                    {
+                        "name": "nonce",
+                        "in": "query",
+                        "description": "An nonce provided by the client (and opaque to Authentiq Connect) that will be included in any ID Token generated for this session. Clients should use the nonce to mitigate replay attacks.\n"
+                    },
+                    {
+                        "name": "display",
+                        "in": "query",
+                        "description": "The authentication display mode, which can be one of `page`, `popup` or `modal`. Defaults to `page`.\n"
+                    },
+                    {
+                        "name": "prompt",
+                        "in": "query",
+                        "description": "Space-delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the End-User for reauthentication and consent. The supported values are: `none`, `login`, `consent`. If `consent` the end-user is asked to (re)confirm what claims they share. Use `none` to check for an active session.\n"
+                    },
+                    {
+                        "name": "max_age",
+                        "in": "query",
+                        "description": "Specifies the allowable elapsed time in seconds since the last time the end-user was actively authenticated.\n"
+                    },
+                    {
+                        "name": "ui_locales",
+                        "in": "query",
+                        "description": "Specifies the preferred language to use on the authorization page, as a space-separated list of BCP47 language tags. Ignored at the moment.\n"
+                    }
+                ]
+            }
+        },
+        "\/client": {
+            "get": {
+                "summary": "List clients",
+                "description": "Retrieve a list of clients.\n",
+                "operationId": "Client",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "post": {
+                "summary": "Register a client",
+                "description": "Register a new client with this Authentiq Connect provider.\n\nThis endpoint is compatible with [OIDC's Client Registration](http:\/\/openid.net\/specs\/openid-connect-registration-1_0.html) extension.\n\nSee also:\n- [OIDC Client Registration Endpoint](http:\/\/openid.net\/specs\/openid-connect-registration-1_0.html#ClientRegistration)\n",
+                "operationId": "CreateClient",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/client\/{client_id}": {
+            "delete": {
+                "summary": "Delete a client",
+                "description": "Delete a previously registered client.\n",
+                "operationId": "ClientClientId",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "View a client",
+                "description": "Retrieve the configuration of a previously registered client.\n\nSee also:\n- [OIDC Client Configuration Endpoint](http:\/\/openid.net\/specs\/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)\n",
+                "operationId": "GetClient",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "put": {
+                "summary": "Update a client",
+                "description": "Update the configuration of a previously registered client.\n\nSee also:\n- [OIDC Client Configuration Endpoint](http:\/\/openid.net\/specs\/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)\n",
+                "operationId": "UpdateClient",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/token": {
+            "post": {
+                "summary": "Obtain an ID Token",
+                "description": "Exchange en authorization code for an ID Token or Access Token.\n\nThis endpoint supports both `client_secret_post` and `client_secret_basic` authenticatino methods, as specified by the client's `token_endpoint_auth_method`.\n\nSee also:\n  - [OIDC Token Endpoint](http:\/\/openid.net\/specs\/openid-connect-core-1_0.html#TokenRequest)\n  - [OIDC Successful Token response](http:\/\/openid.net\/specs\/openid-connect-core-1_0.html#TokenResponse)\n  - [OIDC Token Error response](http:\/\/openid.net\/specs\/openid-conne",
+                "operationId": "Token",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "HTTP Basic authorization header.\n"
+                    },
+                    {
+                        "name": "client_id",
+                        "in": "formData",
+                        "description": "The registered client ID.\n"
+                    },
+                    {
+                        "name": "client_secret",
+                        "in": "formData",
+                        "description": "The registered client ID secret.\n"
+                    },
+                    {
+                        "name": "grant_type",
+                        "in": "formData",
+                        "description": "The authorization grant type, must be `authorization_code`.\n"
+                    },
+                    {
+                        "name": "code",
+                        "in": "formData",
+                        "description": "The authorization code previously obtained from the Authentication endpoint.\n"
+                    },
+                    {
+                        "name": "redirect_uri",
+                        "in": "formData",
+                        "description": "The redirect URL that was used previously with the Authentication endpoint.\n"
+                    }
+                ]
+            }
+        },
+        "\/userinfo": {
+            "get": {
+                "summary": "Retrieve their user profile",
+                "description": "Use this endpoint to retrieve a user's profile in case you've not already obtained enough details from the ID Token via the Token Endpoint.\n See also:\n - [OIDC UserInfo endpoint](http:\/\/openid.net\/specs\/openid-connect-core-1_0.html#UserInfo)\n",
+                "operationId": "UserInfo",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/{client_id}\/iframe": {
+            "get": {
+                "summary": "Include a session iframe",
+                "description": "An OpenID Connect Session Management iframe to facilitate e.g. single sign-on or remote logouts.\n\nThe iframe implements the OIDC postMessage-based [change notification protocol](http:\/\/openid.net\/specs\/openid-connect-session-1_0.html#ChangeNotification) via which a client can receive notifications about session state changes.\n\nSee also:\n- [OIDC OP iframe](http:\/\/openid.net\/specs\/openid-connect-session-1_0.html#OPiframe)\n",
+                "operationId": "AuthorizeIframe",
+                "deprecated": 0,
+                "parameters": []
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "country": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "locality": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "postal_code": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "region": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "street_address": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Client": {
+                "type": "object",
+                "properties": {
+                    "application_type": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "client_id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "client_name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "client_uri": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "contacts": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "default_max_age": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "default_scopes": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "grant_types": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "logo_uri": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "policy_uri": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "redirect_uris": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "response_types": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "tos_uri": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "OAuth2Error": {
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "error_description": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ProblemDetail": {
+                "type": "object",
+                "properties": {
+                    "detail": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "status": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "title": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Session": {
+                "type": "object",
+                "properties": {
+                    "authenticated_at": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "client_id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "client_name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "client_uri": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "concluded_at": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "connected_at": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "contacts": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "created_at": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "deleted_at": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "logo_uri": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "nonce": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "policy_uri": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "redirect_uri": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "response_mode": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "response_type": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "scopes": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "scopes_optional": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "scopes_required": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "scopes_seen": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "scopes_signed": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "session_id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "session_state": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "session_uri": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "sub": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "tokens_seen": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "tos_uri": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "version": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "Token": {
+                "type": "object",
+                "properties": {
+                    "access_token": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "expires_at": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "expires_in": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "id_token": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "refresh_token": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "scope": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "token_type": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "UserInfo": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "email_verified": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "family_name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "given_name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "phone_number": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "phone_number_verified": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "sub": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            }
+        }
+    }
+}
