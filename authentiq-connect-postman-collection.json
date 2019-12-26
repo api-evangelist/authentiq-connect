@@ -1,5 +1,5 @@
 {
-    "id": "6a713c98b883a2b61da1311fd5132975",
+    "id": "9fc0898ae7855aea73d98d49447cb3a9",
     "name": "Authentiq Connect",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "83c4f6e5c4ccfd422c884b54903dad9d",
+            "id": "c89079864f2d11cdee1a9ca89eff5945",
             "name": "Authenticate a user",
             "url": "httpsconnect.authentiq.io\/\/authorize",
             "description": "Start a session with Authentiq Connect and authenticate a user.\n\nExample:\n\n```\nGET https:\/\/connect.authentiq.io\/authorize?client_id=<your-client-id>&response_type=code+id_token&scope=openid+email&redirect_uri=<your-redirect-uri>&state=0123456789\n```\n\nThis endpoint is compatible with OpenID Connect and also supports the POST method, in which case the parameters are passed as a form post.\n\nSee also:\n  - [OAuth 2.0 Authorization Endpoint](http:\/\/tools.ietf.org\/html\/rfc6749#section-3.1)\n  - [OIDC Au",
@@ -107,11 +107,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "6a713c98b883a2b61da1311fd5132975",
+            "collectionId": "9fc0898ae7855aea73d98d49447cb3a9",
             "rawModeData": ""
         },
         {
-            "id": "4f26331b267086bb5c0279e80baa1e22",
+            "id": "1b3be611faab3f3a677144a731945204",
             "name": "List clients",
             "url": "httpsconnect.authentiq.io\/\/client",
             "description": "Retrieve a list of clients.\n",
@@ -130,11 +130,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "6a713c98b883a2b61da1311fd5132975",
+            "collectionId": "9fc0898ae7855aea73d98d49447cb3a9",
             "rawModeData": ""
         },
         {
-            "id": "e1ffadfb972f39106a33fb9a755b77eb",
+            "id": "f0b15419a780acea78087922cfdb684a",
             "name": "Register a client",
             "url": "httpsconnect.authentiq.io\/\/client",
             "description": "Register a new client with this Authentiq Connect provider.\n\nThis endpoint is compatible with [OIDC's Client Registration](http:\/\/openid.net\/specs\/openid-connect-registration-1_0.html) extension.\n\nSee also:\n- [OIDC Client Registration Endpoint](http:\/\/openid.net\/specs\/openid-connect-registration-1_0.html#ClientRegistration)\n",
@@ -153,11 +153,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "6a713c98b883a2b61da1311fd5132975",
+            "collectionId": "9fc0898ae7855aea73d98d49447cb3a9",
             "rawModeData": ""
         },
         {
-            "id": "f494a5d49e457d39a87e9a6ab12748cc",
+            "id": "93100578790b83dd24ff16555fe94790",
             "name": "Delete a client",
             "url": "httpsconnect.authentiq.io\/\/client\/{client_id}",
             "description": "Delete a previously registered client.\n",
@@ -176,11 +176,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "6a713c98b883a2b61da1311fd5132975",
+            "collectionId": "9fc0898ae7855aea73d98d49447cb3a9",
             "rawModeData": ""
         },
         {
-            "id": "413cfbeb1a3136cdae27fa4db0b03c62",
+            "id": "15df9b1ace5d6b151b87daac95b13e77",
             "name": "View a client",
             "url": "httpsconnect.authentiq.io\/\/client\/{client_id}",
             "description": "Retrieve the configuration of a previously registered client.\n\nSee also:\n- [OIDC Client Configuration Endpoint](http:\/\/openid.net\/specs\/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)\n",
@@ -199,11 +199,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "6a713c98b883a2b61da1311fd5132975",
+            "collectionId": "9fc0898ae7855aea73d98d49447cb3a9",
             "rawModeData": ""
         },
         {
-            "id": "2c392b43c4a73a0ad18801f1ba1f9c8c",
+            "id": "6eb0903d95bb572081d49915c8576642",
             "name": "Update a client",
             "url": "httpsconnect.authentiq.io\/\/client\/{client_id}",
             "description": "Update the configuration of a previously registered client.\n\nSee also:\n- [OIDC Client Configuration Endpoint](http:\/\/openid.net\/specs\/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)\n",
@@ -222,11 +222,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "6a713c98b883a2b61da1311fd5132975",
+            "collectionId": "9fc0898ae7855aea73d98d49447cb3a9",
             "rawModeData": ""
         },
         {
-            "id": "66b1cf40f16bb89e0a90aa0fa5d3b2d3",
+            "id": "5678358c9278238df26da9240b0888dd",
             "name": "Obtain an ID Token",
             "url": "httpsconnect.authentiq.io\/\/token",
             "description": "Exchange en authorization code for an ID Token or Access Token.\n\nThis endpoint supports both `client_secret_post` and `client_secret_basic` authenticatino methods, as specified by the client's `token_endpoint_auth_method`.\n\nSee also:\n  - [OIDC Token Endpoint](http:\/\/openid.net\/specs\/openid-connect-core-1_0.html#TokenRequest)\n  - [OIDC Successful Token response](http:\/\/openid.net\/specs\/openid-connect-core-1_0.html#TokenResponse)\n  - [OIDC Token Error response](http:\/\/openid.net\/specs\/openid-conne",
@@ -288,11 +288,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "6a713c98b883a2b61da1311fd5132975",
+            "collectionId": "9fc0898ae7855aea73d98d49447cb3a9",
             "rawModeData": ""
         },
         {
-            "id": "c8adf7f79fc87549a0f0634266f09591",
+            "id": "b7f40cec0c74147e87737276a4bd613e",
             "name": "Retrieve their user profile",
             "url": "httpsconnect.authentiq.io\/\/userinfo",
             "description": "Use this endpoint to retrieve a user's profile in case you've not already obtained enough details from the ID Token via the Token Endpoint.\n See also:\n - [OIDC UserInfo endpoint](http:\/\/openid.net\/specs\/openid-connect-core-1_0.html#UserInfo)\n",
@@ -311,11 +311,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "6a713c98b883a2b61da1311fd5132975",
+            "collectionId": "9fc0898ae7855aea73d98d49447cb3a9",
             "rawModeData": ""
         },
         {
-            "id": "ebc2f00d80c8b595ff90f4c407f7ebce",
+            "id": "d0262259a12fe9dd90d183797b255556",
             "name": "Include a session iframe",
             "url": "httpsconnect.authentiq.io\/\/{client_id}\/iframe",
             "description": "An OpenID Connect Session Management iframe to facilitate e.g. single sign-on or remote logouts.\n\nThe iframe implements the OIDC postMessage-based [change notification protocol](http:\/\/openid.net\/specs\/openid-connect-session-1_0.html#ChangeNotification) via which a client can receive notifications about session state changes.\n\nSee also:\n- [OIDC OP iframe](http:\/\/openid.net\/specs\/openid-connect-session-1_0.html#OPiframe)\n",
@@ -334,7 +334,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "6a713c98b883a2b61da1311fd5132975",
+            "collectionId": "9fc0898ae7855aea73d98d49447cb3a9",
             "rawModeData": ""
         }
     ]
